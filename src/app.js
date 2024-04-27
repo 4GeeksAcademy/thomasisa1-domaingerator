@@ -5,19 +5,20 @@ import "./style.css";
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
-let pronouns = ["the", "our", "my"];
-let adjectives = ["great", "big", "little"];
-let nouns = ["jogger", "racoon", "fox", "bear"];
-let extensions = [".com", ".net", ".org"];
+const pronouns = ["the", "our", "my"];
+const adjectives = ["great", "big", "little"];
+const nouns = ["jogger", "racoon", "fox", "bear"];
+const extensions = [".com", ".net", ".org"];
 
 // Function to generate domain names
-function generateDomains(pronouns, adjectives, nouns, extensions) {
+function generateDomains() {
   let domains = [];
-  for (let i = 0; i < pronouns.length; i++) {
-    for (let j = 0; j < adjectives.length; j++) {
-      for (let k = 0; k < nouns.length; k++) {
-        for (let ext = 0; ext < extensions.length; ext++) {
-          let domain = pronouns[i] + adjectives[j] + nouns[k] + extensions[ext];
+  //Creating Domain Names
+  for (let pronoun of pronouns) {
+    for (let adjective of adjectives) {
+      for (let noun of nouns) {
+        for (let extension of extensions) {
+          let domain = pronoun + adjective + noun + extension;
           domains.push(domain);
         }
       }
@@ -26,9 +27,9 @@ function generateDomains(pronouns, adjectives, nouns, extensions) {
   return domains;
 }
 
-let domains = generateDomains(pronouns, adjectives, nouns, extensions);
+let domains = generateDomains();
 window.onload = function() {
-  for (let i = 0; i < domains.length; i++) {
-    console.log(domains[i]);
+  for (let domain of domains) {
+    console.log(domain);
   }
 };
